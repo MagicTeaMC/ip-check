@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+ 
+<head>
+    <title>IP Checker By MagicTea</title>
+    <meta name="description" content="IP Checker">
+    <meta name="keywords" content="IP Checker,whatismyip,ip,myip">
+    <meta name="author" content="MagicTea">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+    p, h1 {
+        color: rgb(0, 77, 128);
+    }
+    </style>
+  
+  <script src=
+"https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js">
+    </script>
+     
+      <script>
+     
+    /* Add "https://api.ipify.org?format=json" statement
+               this will communicate with the ipify servers in
+               order to retrieve the IP address $.getJSON will
+               load JSON-encoded data from the server using a
+               GET HTTP request */
+                
+    $.getJSON("https://ipapi.co/json", function(data) {
+         
+        // Setting text of element P with id gfg
+        $("#gfg").html(data.ip);
+    })
+
+    <script></script>
+    
+</head>
+ 
+<body>
+    <center>
+        <h1>IP Checker</h1>
+        <h3>Your IP: <span id="ipfield">loading...</span></h3>
+        <h3>Your Country: <span id="ipcountry">loading...</span></h3>
+        <h3>Your City: <span id="ipcity">loading...</span></h3>
+        <h3>Your ISP: <span id="ipisp">loading...</span></h3>
+        <script>
+            function callback(json) {
+              document.getElementById("ipfield").innerHTML = json.ip;
+              document.getElementById("ipcountry").innerHTML = json.country_name;
+              document.getElementById("ipcity").innerHTML = json.city;
+              document.getElementById("ipisp").innerHTML = json.org;
+            }
+          </script>
+          <script src="https://ipapi.co/jsonp/"></script>
+ 
+    </center>
+</body>
+ 
+</html>
